@@ -4,135 +4,141 @@
     <meta charset="UTF-8" />
     <title>Ofiare Osakpamukhoko William</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Animate On Scroll CSS -->
-     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-    
-    <!-- Custom Ticker Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style>
-      @keyframes ticker {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
+      @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+      .animate-marquee {
+        display: inline-block;
+        white-space: nowrap;
+        animation: marquee 20s linear infinite;
       }
     </style>
   </head>
+  <body class="bg-cover bg-center bg-no-repeat text-[#eeeeee] font-sans overflow-x-hidden relative" style="background-image: url('bg-image.jpg');">
 
-  <body class="bg-cover bg-center bg-no-repeat text-[#eeeeee] font-sans overflow-x-hidden relative"
-      style="background-image: url('bg-image.jpg');">
-
-    <!-- Three.js Starfield -->
     <canvas id="starfield" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
 
-    <!-- Main Content -->
     <main class="relative z-10 px-4 md:px-12 py-10 space-y-24">
-      
-      <!-- Hero Section -->
+
       <section class="text-center mt-24" data-aos="zoom-in">
-        
         <h1 class="text-[#fffb00] text-4xl md:text-6xl font-bold drop-shadow-[0_0_12px_#fffb00]">
           OFIARE WILLIAM
         </h1>
         <p class="text-[#999999] mt-4">
           Creative Frontend Developer · Legal Tech Builder · UX-First Coder
         </p>
-       <a href="#projects" class="inline-block mt-6 px-6 py-2 bg-[#00cc99] hover:bg-[#00e6b8] text-white rounded-full transition shadow-lg hover:shadow-[#00ffff]/50 hover:scale-105">
-        See My Projects
-      </a>
+        <a href="#projects" class="inline-block mt-6 px-6 py-2 bg-[#00cc99] hover:bg-[#00e6b8] text-white rounded-full transition shadow-lg hover:shadow-[#00ffff]/50 hover:scale-105">
+          See My Projects
+        </a>
       </section>
 
-      <!-- About Section -->
-       <section id="about" class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+      <section id="about" class="max-w-3xl mx-auto text-center" data-aos="fade-up">
         <h2 class="text-[#00ffff] text-2xl font-semibold uppercase tracking-widest drop-shadow-[0_0_6px_#00ffff]">
           About Me
         </h2>
-        <p class="text-white  mt-4">
-          I design and develop modern websites that deliver both visual impact and business results. Recently, I built a
-          sleek and functional legal portfolio site for <strong>M.A. Idaiye & Co</strong>, combining user-centered design
-          with online legal document workflows.
+        <p class="text-white mt-4">
+          I design and develop modern websites that deliver both visual impact and business results. Recently, I built a sleek and functional legal portfolio site for <strong>M.A. Idaiye & Co</strong>, combining user-centered design with online legal document workflows.
         </p>
       </section>
 
-      <!-- Project Section -->
       <section id="projects" class="max-w-5xl mx-auto" data-aos="fade-up">
         <h2 class="text-cyan-400 text-2xl font-semibold uppercase tracking-widest drop-shadow-[0_0_6px_#00ffff]">
           Featured Project
         </h2>
         <div class="flex flex-col md:flex-row items-center gap-6 mt-6">
-          <img src="maidaiye-screenshot.png" alt="M.A. Idaiye & Co"
-          class="w-64 rounded-lg border border-gray-600 shadow-lg hover:scale-105 transition-all duration-300" />
-
+          <img src="maidaiye-screenshot.png" alt="M.A. Idaiye & Co" class="w-64 rounded-lg border border-gray-600 shadow-lg hover:scale-105 transition-all duration-300" />
           <div>
             <h3 class="text-xl font-bold text-[#ff69b4]">M.A. Idaiye & Co</h3>
             <p class="text-white mt-4">
-              A legal portfolio website with dynamic form templates, responsive design, and professional branding. Built
-              with HTML, CSS, and hosted on GitHub Pages.
+              A legal portfolio website with dynamic form templates, responsive design, and professional branding. Built with HTML, CSS, and hosted on GitHub Pages.
             </p>
             <div class="mt-4 flex flex-wrap gap-4 justify-center text-center">
-              <a href="https://wilpowatech.github.io/my-portfolio/" 
-              class="text-blue-400 hover:underline hover:text-blue-300 transition-colors duration-300 text-base sm:text-lg" 
-              target="_blank" rel="noopener noreferrer">
-              🔗 Live Site
-            </a>
-            
-            <a href="https://github.com/wilpowatech/my-portfolio" 
-            class="text-blue-400 hover:underline hover:text-blue-300 transition-colors duration-300 text-base sm:text-lg" 
-            target="_blank" rel="noopener noreferrer">
-            💻 View Code
-          </a>
+              <a href="https://wilpowatech.github.io/my-portfolio/" class="text-blue-400 hover:underline hover:text-blue-300 transition-colors duration-300 text-base sm:text-lg" target="_blank" rel="noopener noreferrer">
+                🔗 Live Site
+              </a>
+              <a href="https://github.com/wilpowatech/my-portfolio" class="text-blue-400 hover:underline hover:text-blue-300 transition-colors duration-300 text-base sm:text-lg" target="_blank" rel="noopener noreferrer">
+                💻 View Code
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-      <!-- Footer -->
       <footer class="text-center text-sm text-white mt-20">
         📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
       </footer>
     </main>
-    <!-- Comment Form -->
-     <div class="w-full max-w-xl mx-auto mt-8 text-center px-4">
-      <input id="commentInput" type="text" placeholder="Leave a comment..."
-      class="w-3/4 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 text-black" />
-      <button onclick="addComment()"
-      class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-      Submit
-    </button>
-  </div>
 
-<!-- Testimonial Ticker -->
-<div class="overflow-hidden whitespace-nowrap w-full bg-black py-4 mt-4 text-center">
-  <div id="ticker" class="inline-block text-yellow-300 text-lg animate-marquee">
-    💬 Testimonials will appear here...
-  </div>
-</div>
+    <div class="w-full max-w-xl mx-auto mt-8 text-center px-4">
+      <input id="commentInput" type="text" placeholder="Leave a comment..." class="w-3/4 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 text-black" />
+      <button onclick="addComment()" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+        Submit
+      </button>
+    </div>
 
-<!-- Tailwind Marquee Animation -->
-<style>
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
+    <div class="overflow-hidden whitespace-nowrap w-full bg-black py-4 mt-4 text-center">
+      <div id="ticker" class="inline-block text-yellow-300 text-lg animate-marquee">
+        💬 Testimonials will appear here...
+      </div>
+    </div>
 
-  .animate-marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 20s linear infinite;
-  }
-</style>
+    <script>
+      const apiKey = '$2a$10$apbzCMwnXto4DGSeuW1qzeoKPDJvpwGiBqRJZ2uFfZtFZb2dowXjS';
+      const binUrl = 'https://api.jsonbin.io/v3/b/66607b64e41b4d34eecffb0c';
 
-    <!-- Starfield Animation -->
+      const input = document.getElementById('commentInput');
+      const ticker = document.getElementById('ticker');
+
+      async function loadComments() {
+        try {
+          const res = await fetch(binUrl, {
+            headers: { 'X-Master-Key': apiKey }
+          });
+          const data = await res.json();
+          const comments = data.record || [];
+          ticker.innerHTML = comments.map(c => `💬 ${c}`).join(' &nbsp;&nbsp;&nbsp; ');
+        } catch (err) {
+          ticker.innerHTML = '⚠️ Failed to load testimonials.';
+          console.error('Error:', err);
+        }
+      }
+
+      async function addComment() {
+        const newComment = input.value.trim();
+        if (!newComment) return;
+
+        const res = await fetch(binUrl, {
+          headers: { 'X-Master-Key': apiKey }
+        });
+        const data = await res.json();
+        const comments = data.record || [];
+
+        comments.push(newComment);
+
+        await fetch(binUrl, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+          },
+          body: JSON.stringify(comments)
+        });
+
+        input.value = '';
+        loadComments();
+      }
+
+      window.onload = loadComments;
+      window.addComment = addComment;
+    </script>
+
     <script type="module" src="starfield.js"></script>
-    <!-- Animate On Scroll JS -->
-     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-     <script>AOS.init();</script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
 
   </body>
 </html>
