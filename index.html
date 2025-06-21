@@ -1,44 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Ofiare Osakpamukhoko William</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-</head>
-<body>
-  <canvas id="starfield"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ofiare Osakpamukhoko William</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <main>
-    <section class="hero">
-      <h1><span>Ofiare Osakpamukhoko</span><br>William</h1>
-      <p>Creative Frontend Developer · Legal Tech Builder · UX-First Coder</p>
-      <a href="#projects" class="btn">See My Projects</a>
-    </section>
+    <!-- Animate On Scroll CSS -->
+     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    <section class="about" id="about">
-      <h2>About Me</h2>
-      <p>I design and develop modern websites that deliver both visual impact and business results. Recently, I built a sleek and functional legal portfolio site for <strong>M.A. Idaiye & Co</strong>, combining user-centered design with online legal document workflows.</p>
-    </section>
+    
+    <!-- Custom Ticker Animation -->
+    <style>
+      @keyframes ticker {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
 
-    <section class="projects" id="projects">
-      <h2>Featured Project</h2>
-      <div class="project">
-        <img src="project-thumbnail.png" alt="M.A. Idaiye & Co">
-        <div>
-          <h3>M.A. Idaiye & Co</h3>
-          <p>A legal portfolio website with dynamic form templates, responsive design, and professional branding. Built with HTML, CSS, and hosted on GitHub Pages.</p>
-          <a href="#" class="link">🔗 Live Site</a>
-          <a href="#" class="link">💻 View Code</a>
+  <body class="bg-cover bg-center bg-no-repeat text-[#eeeeee] font-sans overflow-x-hidden relative"
+      style="background-image: url('bg-image.jpg');">
+
+    <!-- Three.js Starfield -->
+    <canvas id="starfield" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
+
+    <!-- Main Content -->
+    <main class="relative z-10 px-4 md:px-12 py-10 space-y-24">
+      
+      <!-- Hero Section -->
+      <section class="text-center mt-24" data-aos="zoom-in">
+        
+        <h1 class="text-[#fffb00] text-4xl md:text-6xl font-bold drop-shadow-[0_0_12px_#fffb00]">
+          OFIARE WILLIAM
+        </h1>
+        <p class="text-[#999999] mt-4">
+          Creative Frontend Developer · Legal Tech Builder · UX-First Coder
+        </p>
+       <a href="#projects" class="inline-block mt-6 px-6 py-2 bg-[#00cc99] hover:bg-[#00e6b8] text-white rounded-full transition shadow-lg hover:shadow-[#00ffff]/50 hover:scale-105">
+        See My Projects
+      </a>
+      </section>
+
+      <!-- About Section -->
+       <section id="about" class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-[#00ffff] text-2xl font-semibold uppercase tracking-widest drop-shadow-[0_0_6px_#00ffff]">
+          About Me
+        </h2>
+        <p class="text-gray-200 mt-4">
+          I design and develop modern websites that deliver both visual impact and business results. Recently, I built a
+          sleek and functional legal portfolio site for <strong>M.A. Idaiye & Co</strong>, combining user-centered design
+          with online legal document workflows.
+        </p>
+      </section>
+
+      <!-- Project Section -->
+      <section id="projects" class="max-w-5xl mx-auto" data-aos="fade-up">
+        <h2 class="text-cyan-400 text-2xl font-semibold uppercase tracking-widest drop-shadow-[0_0_6px_#00ffff]">
+          Featured Project
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-6 mt-6">
+          <img src="maidaiye-screenshot.png" alt="M.A. Idaiye & Co"
+          class="w-64 rounded-lg border border-gray-600 shadow-lg hover:scale-105 transition-all duration-300" />
+
+          <div>
+            <h3 class="text-xl font-bold text-[#ff69b4]">M.A. Idaiye & Co</h3>
+            <p class="text-gray-200 mt-4">
+              A legal portfolio website with dynamic form templates, responsive design, and professional branding. Built
+              with HTML, CSS, and hosted on GitHub Pages.
+            </p>
+            <div class="mt-4 space-x-4">
+              <a href="#" class="text-blue-400 hover:underline">🔗 Live Site</a>
+              <a href="#" class="text-blue-400 hover:underline">💻 View Code</a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-sm text-gray-400 mt-20">
+        📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
+      </footer>
+    </main>
+
+    <!-- Testimonials Ticker -->
+     <div class="fixed bottom-0 w-full z-50 bg-[#111111]/70 text-[#00e6b8] text-sm md:text-base overflow-hidden">
+      <div class="whitespace-nowrap flex animate-[ticker_30s_linear_infinite] gap-16 px-4 py-2 font-mono">
+        <span>⭐ “Wilpowa Tech helped my law firm go digital seamlessly.” — Barr. M.A. Idaiye</span>
+        <span>⭐ “Professional, modern, and reliable frontend work!” — Client A</span>
+        <span>⭐ “His work speaks for itself.” — LegalTech Review</span>
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <p>📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank">GitHub</a></p>
-    </footer>
-  </main>
+    <!-- Starfield Animation -->
+    <script type="module" src="starfield.js"></script>
+    <!-- Animate On Scroll JS -->
+     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+     <script>AOS.init();</script>
 
-  <script type="module" src="starfield.js"></script>
-</body>
+  </body>
 </html>
