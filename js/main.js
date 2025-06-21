@@ -27,3 +27,15 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+const ticker = document.getElementById('ticker');
+const commentInput = document.getElementById('commentInput');
+
+function addComment() {
+  const newComment = commentInput.value.trim();
+  if (newComment === '') return;
+  
+  // Add new comment to the ticker
+  ticker.innerHTML += ` &nbsp;&nbsp;&nbsp;💬 ${newComment}`;
+  commentInput.value = '';
+}

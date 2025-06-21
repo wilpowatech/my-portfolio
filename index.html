@@ -97,15 +97,36 @@
         📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
       </footer>
     </main>
+    <!-- Comment Form -->
+     <div class="w-full max-w-xl mx-auto mt-8 text-center px-4">
+      <input id="commentInput" type="text" placeholder="Leave a comment..."
+      class="w-3/4 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 text-black" />
+      <button onclick="addComment()"
+      class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+      Submit
+    </button>
+  </div>
 
-    <!-- Testimonials Ticker -->
-     <div class="fixed bottom-0 w-full z-50 bg-[#111111]/70 text-[#00e6b8] text-sm md:text-base overflow-hidden">
-      <div class="whitespace-nowrap flex animate-[ticker_30s_linear_infinite] gap-16 px-4 py-2 font-mono">
-        <span>⭐ “Wilpowa Tech helped my law firm go digital seamlessly.” — Barr. M.A. Idaiye</span>
-        <span>⭐ “Professional, modern, and reliable frontend work!” — Client A</span>
-        <span>⭐ “His work speaks for itself.” — LegalTech Review</span>
-      </div>
-    </div>
+<!-- Testimonial Ticker -->
+<div class="overflow-hidden whitespace-nowrap w-full bg-black py-4 mt-4 text-center">
+  <div id="ticker" class="inline-block text-yellow-300 text-lg animate-marquee">
+    💬 Testimonials will appear here...
+  </div>
+</div>
+
+<!-- Tailwind Marquee Animation -->
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .animate-marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+</style>
 
     <!-- Starfield Animation -->
     <script type="module" src="starfield.js"></script>
