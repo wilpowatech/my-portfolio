@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ofiare Khoko – Developer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Ofiare Osakpamukhoko William</h1>
-    <p>Frontend Web Developer | Tech Innovator | Legal Website Specialist</p>
-  </header>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ofiare Khoko | Tech Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  </head>
+  <body class="bg-black text-white font-sans relative overflow-x-hidden">
+    <canvas id="starfield" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a creative front-end developer with a passion for building professional websites for African businesses. I recently built a legal portfolio website for M. A. Idaiye & Co., helping them establish an online presence tailored to Nigeria’s legal system. I also actively learn new technologies and enjoy solving real-world problems using code.
-    </p>
-  </section>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center relative z-10 text-center px-4">
+      <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 drop-shadow-glow animate-fade-in-up">Ofiare Osakpamukhoko William</h1>
+      <p class="mt-4 text-lg text-gray-300 max-w-xl animate-fade-in-up delay-200">
+        Creative Frontend Developer · Legal Tech Builder · UX-First Coder
+      </p>
+      <a href="#projects" class="mt-6 inline-block bg-gradient-to-r from-blue-500 to-teal-400 text-black px-6 py-3 rounded-full font-semibold shadow-xl hover:scale-105 transition transform duration-300 animate-fade-in-up delay-400">
+        See My Projects
+      </a>
+    </section>
 
-  <section id="projects">
-    <h2>Featured Project</h2>
-    <div class="project-card">
-      <img src="assets/maidaiye-screenshot.png" alt="M.A. Idaiye & Co website screenshot" />
-      <div class="project-info">
-        <h3>M. A. Idaiye & Co. – Legal Portfolio Website</h3>
-        <p>
-          A professional website for a Nigerian law office featuring contact form, deed and will templates, legal-themed visuals, and a responsive design. Hosted on GitHub Pages.
-        </p>
-        <a href="https://wilpowatech.github.io/maidaiye" target="_blank">🔗 View Live</a>
-        <a href="https://github.com/wilpowatech/maidaiye" target="_blank">💻 View Code</a>
+    <!-- About -->
+    <section id="about" class="relative z-10 bg-opacity-10 backdrop-blur-sm bg-white/10 py-16 px-4 md:px-10 rounded-xl mx-6 md:mx-32 mt-10 shadow-lg">
+      <h2 class="text-3xl font-semibold text-center text-cyan-300">About Me</h2>
+      <p class="mt-6 text-gray-300 text-center max-w-3xl mx-auto">
+        I design and develop modern websites that deliver both visual impact and business results.
+        Recently, I built a sleek and functional legal portfolio site for <strong>M.A. Idaiye & Co.</strong>,
+        combining user-centered design with online legal document workflows.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="relative z-10 py-20 px-6 md:px-10">
+      <h2 class="text-3xl font-semibold text-center text-cyan-300 mb-10">Featured Project</h2>
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-lg max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
+        <img src="assets/maidaiye-screenshot.png" alt="Project Screenshot" class="w-full md:w-1/2 rounded-lg border border-cyan-400" />
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-semibold text-teal-400">M.A. Idaiye & Co</h3>
+          <p class="text-gray-300 mt-2">
+            A legal portfolio website with dynamic form templates, responsive design, and professional branding. Built with HTML, CSS, and hosted on GitHub Pages.
+          </p>
+          <div class="mt-4 space-x-4">
+            <a href="https://wilpowatech.github.io/maidaiye" target="_blank" class="text-blue-400 underline">🔗 Live Site</a>
+            <a href="https://github.com/wilpowatech/maidaiye" target="_blank" class="text-blue-400 underline">💻 View Code</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p>📫 Contact: williamkhoko@yahoo.com | <a href="https://github.com/kokainaW">GitHub</a></p>
-  </footer>
-</body>
+    <!-- Footer -->
+    <footer class="relative z-10 text-center py-8 text-sm text-gray-400">
+      <p>📨 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" class="underline text-cyan-300">GitHub</a></p>
+    </footer>
+
+    <script src="three.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
