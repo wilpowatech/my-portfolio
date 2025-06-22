@@ -71,14 +71,24 @@
       <footer class="text-center text-sm text-white mt-20">
         📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
       </footer>
-    </main>
+    
+      <!-- Testimonial Form -->
+      <div class="w-full max-w-xl mx-auto mt-16 text-center px-4 z-10">
+        <input id="nameInput" type="text" placeholder="Your name"
+          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
 
-    <div class="w-full max-w-xl mx-auto mt-8 text-center px-4">
-      <input id="commentInput" type="text" placeholder="Leave a comment..." class="w-3/4 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 text-black" />
-      <button onclick="addComment()" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-        Submit
-      </button>
-    </div>
+        <textarea id="commentInput" rows="2" placeholder="Your comment"
+          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"></textarea>
+
+        <input id="ratingInput" type="number" min="1" max="10" placeholder="Rating (1-10)"
+          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
+
+        <button onclick="addComment()"
+          class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+          Submit
+        </button>
+      </div>
+    </main>
 
     <div class="overflow-hidden whitespace-nowrap w-full bg-black py-4 mt-4 text-center">
       <div id="ticker" class="inline-block text-yellow-300 text-lg animate-marquee">
@@ -88,52 +98,67 @@
 
     <script>
       const apiKey = '$2a$10$apbzCMwnXto4DGSeuW1qzeoKPDJvpwGiBqRJZ2uFfZtFZb2dowXjS';
-      const binUrl = 'https://api.jsonbin.io/v3/b/6857d0818960c979a5aef771';
+      const binUrl = 'https://api.jsonbin.io/v3/b/66607b64e41b4d34eecffb0c';
 
-      const input = document.getElementById('commentInput');
-      const ticker = document.getElementById('ticker');
+    const nameInput = document.getElementById('nameInput');
+    const commentInput = document.getElementById('commentInput');
+    const ratingInput = document.getElementById('ratingInput');
+    const ticker = document.getElementById('ticker');
 
-      async function loadComments() {
-        try {
-          const res = await fetch(binUrl, {
-            headers: { 'X-Master-Key': apiKey }
-          });
-          const data = await res.json();
-          const comments = data.record || [];
-          ticker.innerHTML = comments.map(c => `💬 ${c}`).join(' &nbsp;&nbsp;&nbsp; ');
-        } catch (err) {
-          ticker.innerHTML = '⚠️ Failed to load testimonials.';
-          console.error('Error:', err);
-        }
-      }
-
-      async function addComment() {
-        const newComment = input.value.trim();
-        if (!newComment) return;
-
+    async function loadComments() {
+      try {
         const res = await fetch(binUrl, {
           headers: { 'X-Master-Key': apiKey }
         });
         const data = await res.json();
         const comments = data.record || [];
 
-        comments.push(newComment);
+        ticker.innerHTML = comments.map(c => 
+          `💬 <strong>${c.name}</strong>: ${c.comment} ⭐${c.rating}`
+        ).join(' &nbsp;&nbsp;&nbsp; ');
+      } catch (err) {
+        ticker.innerHTML = '⚠️ Failed to load testimonials.';
+        console.error('Error:', err);
+      }
+    }
 
-        await fetch(binUrl, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Master-Key': apiKey
-          },
-          body: JSON.stringify(comments)
-        });
+    async function addComment() {
+      const name = nameInput.value.trim();
+      const comment = commentInput.value.trim();
+      const rating = parseInt(ratingInput.value);
 
-        input.value = '';
-        loadComments();
+      if (!name || !comment || !rating || rating < 1 || rating > 10) {
+        alert("Please fill all fields with valid data.");
+        return;
       }
 
-      window.onload = loadComments;
-      window.addComment = addComment;
+      const res = await fetch(binUrl, {
+        headers: { 'X-Master-Key': apiKey }
+      });
+      const data = await res.json();
+      const comments = data.record || [];
+
+      comments.push({ name, comment, rating });
+
+      await fetch(binUrl, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Master-Key': apiKey
+        },
+        body: JSON.stringify(comments)
+      });
+
+      nameInput.value = '';
+      commentInput.value = '';
+      ratingInput.value = '';
+
+      loadComments();
+    }
+
+    window.onload = loadComments;
+    window.addComment = addComment;
+
     </script>
 
     <script type="module" src="starfield.js"></script>
