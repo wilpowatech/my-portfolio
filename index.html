@@ -88,6 +88,7 @@
           Submit
         </button>
       </div>
+
     </main>
 
     <div class="overflow-hidden whitespace-nowrap w-full bg-black py-4 mt-4 text-center">
@@ -98,66 +99,67 @@
 
     <script>
       const apiKey = '$2a$10$apbzCMwnXto4DGSeuW1qzeoKPDJvpwGiBqRJZ2uFfZtFZb2dowXjS';
-      const binUrl = 'https://api.jsonbin.io/v3/b/66607b64e41b4d34eecffb0c';
+      const binUrl = 'https://api.jsonbin.io/v3/b/6857d0818960c979a5aef771';
 
-    const nameInput = document.getElementById('nameInput');
-    const commentInput = document.getElementById('commentInput');
-    const ratingInput = document.getElementById('ratingInput');
-    const ticker = document.getElementById('ticker');
+      const nameInput = document.getElementById('nameInput');
+      const commentInput = document.getElementById('commentInput');
+      const ratingInput = document.getElementById('ratingInput');
+      const ticker = document.getElementById('ticker');
 
-    async function loadComments() {
-      try {
+      async function loadComments() {
+        try {
+          const res = await fetch(binUrl, {
+            headers: { 'X-Master-Key': apiKey }
+          });
+          const data = await res.json();
+          const comments = data.record || [];
+
+          ticker.innerHTML = comments.map(c => 
+            `💬 <strong>${c.name}</strong>: ${c.comment} ⭐${c.rating}`
+          ).join(' &nbsp;&nbsp;&nbsp; ');
+        } catch (err) {
+          ticker.innerHTML = '⚠️ Failed to load testimonials.';
+          console.error('Error:', err);
+        }
+      }
+
+      async function addComment() {
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        const rating = parseInt(ratingInput.value);
+
+        if (!name || !comment || !rating || rating < 1 || rating > 10) {
+          alert("Please fill all fields with valid data.");
+          return;
+        }
+
         const res = await fetch(binUrl, {
           headers: { 'X-Master-Key': apiKey }
         });
         const data = await res.json();
         const comments = data.record || [];
 
-        ticker.innerHTML = comments.map(c => 
-          `💬 <strong>${c.name}</strong>: ${c.comment} ⭐${c.rating}`
-        ).join(' &nbsp;&nbsp;&nbsp; ');
-      } catch (err) {
-        ticker.innerHTML = '⚠️ Failed to load testimonials.';
-        console.error('Error:', err);
+        comments.push({ name, comment, rating });
+
+        await fetch(binUrl, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+          },
+          body: JSON.stringify(comments)
+        });
+
+        nameInput.value = '';
+        commentInput.value = '';
+        ratingInput.value = '';
+
+        loadComments();
       }
-    }
 
-    async function addComment() {
-      const name = nameInput.value.trim();
-      const comment = commentInput.value.trim();
-      const rating = parseInt(ratingInput.value);
+      window.onload = loadComments;
+      window.addComment = addComment;
 
-      if (!name || !comment || !rating || rating < 1 || rating > 10) {
-        alert("Please fill all fields with valid data.");
-        return;
-      }
-
-      const res = await fetch(binUrl, {
-        headers: { 'X-Master-Key': apiKey }
-      });
-      const data = await res.json();
-      const comments = data.record || [];
-
-      comments.push({ name, comment, rating });
-
-      await fetch(binUrl, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Master-Key': apiKey
-        },
-        body: JSON.stringify(comments)
-      });
-
-      nameInput.value = '';
-      commentInput.value = '';
-      ratingInput.value = '';
-
-      loadComments();
-    }
-
-    window.onload = loadComments;
-    window.addComment = addComment;
 
     </script>
 
