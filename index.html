@@ -73,21 +73,22 @@
       </footer>
     
       <!-- Testimonial Form -->
-      <div class="w-full max-w-xl mx-auto mt-16 text-center px-4 z-5">
-        <input id="nameInput" type="text" placeholder="Your name"
-          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
+      <div class="w-full max-w-xl mx-auto mt-16 text-center px-4 z-10">
+        <input id="nameInput" type="text" placeholder="👤 Your Name"
+          class="w-full md:w-3/4 p-3 mb-3 border border-gray-400 bg-white/90 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-600" />
 
-        <textarea id="commentInput" rows="2" placeholder="Your comment"
-          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"></textarea>
+        <textarea id="commentInput" rows="3" placeholder="💬 Share your thoughts..."
+          class="w-full md:w-3/4 p-3 mb-3 border border-gray-400 bg-white/90 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-600 resize-none"></textarea>
 
-        <input id="ratingInput" type="number" min="1" max="10" placeholder="Rating (1-5)"
-          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
+        <input id="ratingInput" type="number" min="1" max="5" placeholder="⭐"
+          class="w-20 p-3 mb-4 border border-gray-400 bg-white/90 rounded-md text-black text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500" />
 
         <button onclick="addComment()"
-          class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-          Submit
+          class="mt-2 bg-gradient-to-r from-blue-600 to-teal-500 text-white px-6 py-2 rounded shadow hover:scale-105 transition">
+          🚀 Submit Testimonial
         </button>
       </div>
+
 
     </main>
 

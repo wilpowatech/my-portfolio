@@ -1,10 +1,21 @@
 const apiKey = '$2a$10$apbzCMwnXto4DGSeuW1qzeoKPDJvpwGiBqRJZ2uFfZtFZb2dowXjS';
 const binUrl = 'https://api.jsonbin.io/v3/b/6857d0818960c979a5aef771';
 
-const input = document.getElementById('commentInput');
+const nameInput = document.getElementById('nameInput');
+const commentInput = document.getElementById('commentInput');
+const ratingInput = document.getElementById('ratingInput');
 const ticker = document.getElementById('ticker');
 
-// ✅ Load Comments
+function getCurrentDateTime() {
+  const now = new Date();
+  return now.toLocaleString(); // Format: 6/21/2025, 8:52:16 PM
+}
+
+function renderStars(rating) {
+  const r = parseInt(rating);
+  return '⭐'.repeat(Math.max(1, Math.min(r, 5)));
+}
+
 async function loadComments() {
   try {
     const res = await fetch(binUrl, {
@@ -13,56 +24,62 @@ async function loadComments() {
     const data = await res.json();
     const comments = data.record || [];
 
-    // ✅ Emoji star display, clamped to 1–5
     ticker.innerHTML = comments
-      .filter(c => c && c.name && c.comment && c.rating)
-      .map(c => {
-        const rating = Math.min(Math.max(parseInt(c.rating), 1), 5);
-        const stars = '⭐'.repeat(rating);
-        return `💬 <strong>${c.name}</strong>: ${c.comment} ${stars}`;
-      })
-      .join(' &nbsp;&nbsp;&nbsp; ');
+      .map(item => {
+        const name = item.name || 'Anonymous';
+        const comment = item.comment || '';
+        const rating = renderStars(item.rating);
+        const date = item.date || '';
 
+        return `
+          <span class="mr-10">
+            <span class="bg-red-600 text-white text-xs px-2 py-0.5 rounded">${date}</span>
+            <span class="text-green-400 font-semibold"> ${name}</span>:
+            <span class="text-blue-300 italic"> "${comment}" </span>
+            <span class="text-yellow-300">${rating}</span>
+          </span>
+        `;
+      })
+      .join('');
   } catch (err) {
     ticker.innerHTML = '⚠️ Failed to load testimonials.';
-    console.error('Error:', err);
+    console.error('Error loading comments:', err);
   }
 }
-// ✅ Add a new comment
+
 async function addComment() {
-    const name = document.getElementById('nameInput').value.trim();
-    const comment = document.getElementById('commentInput').value.trim();
-    const rating = parseInt(document.getElementById('ratingInput').value.trim());
-    
-    if (!name || !comment || isNaN(rating) || rating < 1 || rating > 5) {
-        alert("Please fill in all fields correctly. Rating must be between 1 and 5.");
-        return;
-    }
-    
+  const name = nameInput.value.trim();
+  const comment = commentInput.value.trim();
+  const rating = ratingInput.value.trim();
+  const date = getCurrentDateTime();
+
+  if (!comment || !rating) return;
+
+  try {
     const res = await fetch(binUrl, {
-        headers: { 'X-Master-Key': apiKey }
+      headers: { 'X-Master-Key': apiKey }
     });
     const data = await res.json();
     const comments = data.record || [];
-    comments.push({ name, comment, rating });
-    
-    await fetch(binUrl, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Master-Key': apiKey
-        },
-        
-        body: JSON.stringify(comments)
-    });
-    
-    // Clear form
-    document.getElementById('nameInput').value = '';
-    document.getElementById('commentInput').value = '';
-    document.getElementById('ratingInput').value = '';
-    
-    loadComments();
 
+    comments.push({ name, comment, rating, date });
+
+    await fetch(binUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': apiKey
+      },
+      body: JSON.stringify(comments)
+    });
+
+    nameInput.value = '';
+    commentInput.value = '';
+    ratingInput.value = '';
+    loadComments();
+  } catch (err) {
+    console.error('Error saving comment:', err);
+  }
 }
 
 window.onload = loadComments;
