@@ -5,17 +5,17 @@ const inputName = document.getElementById('nameInput');
 const inputComment = document.getElementById('commentInput');
 const inputRating = document.getElementById('ratingInput');
 const ticker = document.getElementById('ticker');
+const starsDisplay = document.getElementById('starPreview');
 
 // Show stars visually when selecting rating
-inputRating.addEventListener('input', () => {
-  const starsDisplay = document.getElementById('starPreview');
-  const rating = parseInt(inputRating.value);
-  if (!isNaN(rating)) {
-    starsDisplay.innerText = '⭐'.repeat(Math.max(0, Math.min(5, rating)));
-  } else {
-    starsDisplay.innerText = '';
-  }
-});
+if (starsDisplay && inputRating) {
+  inputRating.addEventListener('input', () => {
+    const rating = parseInt(inputRating.value);
+    starsDisplay.innerText = !isNaN(rating)
+      ? '⭐'.repeat(Math.max(0, Math.min(5, rating)))
+      : '';
+  });
+}
 
 // Load and render testimonials
 async function loadComments() {
@@ -33,7 +33,7 @@ async function loadComments() {
         : '';
 
       return `
-        <span class="inline-block mr-6">
+        <span class="inline-block mr-6 mb-2">
           ${dateTime}
           <span class="text-green-400 font-bold">${c.name || 'Anonymous'}</span>:
           <span class="text-blue-300 italic">${c.comment || ''}</span>
@@ -80,7 +80,7 @@ async function addComment() {
     inputName.value = '';
     inputComment.value = '';
     inputRating.value = '';
-    document.getElementById('starPreview').innerText = '';
+    if (starsDisplay) starsDisplay.innerText = '';
     loadComments();
   } catch (err) {
     console.error('Error adding comment:', err);
