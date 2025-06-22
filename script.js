@@ -28,41 +28,41 @@ async function loadComments() {
     console.error('Error:', err);
   }
 }
-
 // ✅ Add a new comment
 async function addComment() {
-  const name = document.getElementById('nameInput').value.trim();
-  const comment = document.getElementById('commentInput').value.trim();
-  const rating = parseInt(document.getElementById('ratingInput').value.trim());
+    const name = document.getElementById('nameInput').value.trim();
+    const comment = document.getElementById('commentInput').value.trim();
+    const rating = parseInt(document.getElementById('ratingInput').value.trim());
+    
+    if (!name || !comment || isNaN(rating) || rating < 1 || rating > 5) {
+        alert("Please fill in all fields correctly. Rating must be between 1 and 5.");
+        return;
+    }
+    
+    const res = await fetch(binUrl, {
+        headers: { 'X-Master-Key': apiKey }
+    });
+    const data = await res.json();
+    const comments = data.record || [];
+    comments.push({ name, comment, rating });
+    
+    await fetch(binUrl, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+        },
+        
+        body: JSON.stringify(comments)
+    });
+    
+    // Clear form
+    document.getElementById('nameInput').value = '';
+    document.getElementById('commentInput').value = '';
+    document.getElementById('ratingInput').value = '';
+    
+    loadComments();
 
-  if (!name || !comment || isNaN(rating) || rating < 1 || rating > 5) {
-    alert("Please fill in all fields correctly. Rating must be between 1 and 5.");
-    return;
-  }
-
-  const res = await fetch(binUrl, {
-    headers: { 'X-Master-Key': apiKey }
-  });
-  const data = await res.json();
-  const comments = data.record || [];
-
-  comments.push({ name, comment, rating });
-
-  await fetch(binUrl, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Master-Key': apiKey
-    },
-    body: JSON.stringify(comments)
-  });
-
-  // Clear form
-  document.getElementById('nameInput').value = '';
-  document.getElementById('commentInput').value = '';
-  document.getElementById('ratingInput').value = '';
-
-  loadComments();
 }
 
 window.onload = loadComments;
