@@ -1,1 +1,14 @@
-/* Currently handled via Tailwind and inline <style> in index.html */
+/* Custom global styles for my-portfolio */
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+/* Optional: You can add spacing or color overrides here later */
