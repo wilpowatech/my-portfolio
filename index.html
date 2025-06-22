@@ -114,9 +114,14 @@
           const data = await res.json();
           const comments = data.record || [];
 
-          ticker.innerHTML = comments.map(c => 
-            `💬 <strong>${c.name}</strong>: ${c.comment} ⭐${c.rating}`
-          ).join(' &nbsp;&nbsp;&nbsp; ');
+          ticker.innerHTML = comments
+            .filter(c => c && c.name && c.comment && c.rating)
+            .map(c => {
+              const stars = '⭐'.repeat(Math.min(Math.max(parseInt(c.rating), 0), 5));
+              return `💬 <strong>${c.name}</strong>: ${c.comment} ${stars}`;
+            })
+            .join(' &nbsp;&nbsp;&nbsp; ');
+
         } catch (err) {
           ticker.innerHTML = '⚠️ Failed to load testimonials.';
           console.error('Error:', err);
