@@ -22,7 +22,7 @@
 
     <canvas id="starfield" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
 
-    <main class="relative z-10 px-4 md:px-12 py-10 pb-32 space-y-24">
+    <main class="relative z-10 px-4 md:px-12 py-10 space-y-24">
 
       <section class="text-center mt-24" data-aos="zoom-in">
         <h1 class="text-[#fffb00] text-4xl md:text-6xl font-bold drop-shadow-[0_0_12px_#fffb00]">
@@ -68,31 +68,31 @@
         </div>
       </section>
 
+      <!-- Testimonial Form -->
+      <div class="w-full max-w-xl mx-auto mt-16 text-center px-4 z-10 space-y-3">
+        <input id="nameInput" type="text" placeholder="Your name" class="w-full p-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
+
+        <textarea id="commentInput" rows="2" placeholder="Your comment" class="w-full p-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"></textarea>
+
+        <input id="ratingInput" type="number" min="1" max="5" placeholder="Rating (1–5)" class="w-full p-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
+
+        <!-- ⭐ Live Star Preview -->
+        <div id="starPreview" class="text-yellow-400 text-lg font-bold"></div>
+
+        <button onclick="addComment()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+          Submit
+        </button>
+      </div>
+
       <footer class="text-center text-sm text-white mt-20">
         📧 williamkhoko@yahoo.com | <a href="https://github.com/wilpowatech" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
       </footer>
 
-      <!-- Testimonial Form -->
-      <div class="w-full max-w-xl mx-auto mt-16 text-center px-4 z-10">
-        <input id="nameInput" type="text" placeholder="Your name"
-          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300" />
-
-        <textarea id="commentInput" rows="2" placeholder="Your comment"
-          class="w-full md:w-3/4 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"></textarea>
-
-        <input id="ratingInput" type="number" min="1" max="5" placeholder="Rating (1–5)"
-          class="w-32 p-2 mb-2 border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300 text-center" />
-
-        <button onclick="addComment()"
-          class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-          Submit
-        </button>
-      </div>
     </main>
 
-    <!-- Fixed testimonial ticker bar always visible at bottom of screen -->
-    <div class="fixed bottom-0 left-0 w-full bg-black py-3 z-50">
-      <div id="ticker" class="animate-marquee text-yellow-300 text-sm md:text-base px-4 whitespace-nowrap overflow-hidden">
+    <!-- Ticker display always at the bottom -->
+    <div class="fixed bottom-0 w-full bg-black py-4 text-center z-50">
+      <div id="ticker" class="inline-block text-yellow-300 text-lg animate-marquee">
         💬 Testimonials will appear here...
       </div>
     </div>

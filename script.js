@@ -1,21 +1,23 @@
 const apiKey = '$2a$10$apbzCMwnXto4DGSeuW1qzeoKPDJvpwGiBqRJZ2uFfZtFZb2dowXjS';
 const binUrl = 'https://api.jsonbin.io/v3/b/6857d0818960c979a5aef771';
 
-const nameInput = document.getElementById('nameInput');
-const commentInput = document.getElementById('commentInput');
-const ratingInput = document.getElementById('ratingInput');
+const inputName = document.getElementById('nameInput');
+const inputComment = document.getElementById('commentInput');
+const inputRating = document.getElementById('ratingInput');
 const ticker = document.getElementById('ticker');
 
-function getCurrentDateTime() {
-  const now = new Date();
-  return now.toLocaleString(); // Format: 6/21/2025, 8:52:16 PM
-}
+// Show stars visually when selecting rating
+inputRating.addEventListener('input', () => {
+  const starsDisplay = document.getElementById('starPreview');
+  const rating = parseInt(inputRating.value);
+  if (!isNaN(rating)) {
+    starsDisplay.innerText = '⭐'.repeat(Math.max(0, Math.min(5, rating)));
+  } else {
+    starsDisplay.innerText = '';
+  }
+});
 
-function renderStars(rating) {
-  const r = parseInt(rating);
-  return '⭐'.repeat(Math.max(1, Math.min(r, 5)));
-}
-
+// Load and render testimonials
 async function loadComments() {
   try {
     const res = await fetch(binUrl, {
@@ -24,36 +26,38 @@ async function loadComments() {
     const data = await res.json();
     const comments = data.record || [];
 
-    ticker.innerHTML = comments
-      .map(item => {
-        const name = item.name || 'Anonymous';
-        const comment = item.comment || '';
-        const rating = renderStars(item.rating);
-        const date = item.date || '';
+    ticker.innerHTML = comments.map(c => {
+      const stars = '⭐'.repeat(c.rating || 0);
+      const dateTime = c.time
+        ? `<span class="bg-red-600 text-white text-xs px-2 py-1 rounded mr-2">${c.time}</span>`
+        : '';
 
-        return `
-          <span class="mr-10">
-            <span class="bg-red-600 text-white text-xs px-2 py-0.5 rounded">${date}</span>
-            <span class="text-green-400 font-semibold"> ${name}</span>:
-            <span class="text-blue-300 italic"> "${comment}" </span>
-            <span class="text-yellow-300">${rating}</span>
-          </span>
-        `;
-      })
-      .join('');
+      return `
+        <span class="inline-block mr-6">
+          ${dateTime}
+          <span class="text-green-400 font-bold">${c.name || 'Anonymous'}</span>:
+          <span class="text-blue-300 italic">${c.comment || ''}</span>
+          <span class="text-yellow-400 ml-2">${stars}</span>
+        </span>
+      `;
+    }).join('');
   } catch (err) {
     ticker.innerHTML = '⚠️ Failed to load testimonials.';
     console.error('Error loading comments:', err);
   }
 }
 
+// Add new testimonial
 async function addComment() {
-  const name = nameInput.value.trim();
-  const comment = commentInput.value.trim();
-  const rating = ratingInput.value.trim();
-  const date = getCurrentDateTime();
+  const name = inputName.value.trim();
+  const comment = inputComment.value.trim();
+  const rating = parseInt(inputRating.value);
+  const time = new Date().toLocaleString();
 
-  if (!comment || !rating) return;
+  if (!name || !comment || isNaN(rating) || rating < 1 || rating > 5) {
+    alert('Please fill out all fields correctly.');
+    return;
+  }
 
   try {
     const res = await fetch(binUrl, {
@@ -62,7 +66,7 @@ async function addComment() {
     const data = await res.json();
     const comments = data.record || [];
 
-    comments.push({ name, comment, rating, date });
+    comments.push({ name, comment, rating, time });
 
     await fetch(binUrl, {
       method: 'PUT',
@@ -73,12 +77,13 @@ async function addComment() {
       body: JSON.stringify(comments)
     });
 
-    nameInput.value = '';
-    commentInput.value = '';
-    ratingInput.value = '';
+    inputName.value = '';
+    inputComment.value = '';
+    inputRating.value = '';
+    document.getElementById('starPreview').innerText = '';
     loadComments();
   } catch (err) {
-    console.error('Error saving comment:', err);
+    console.error('Error adding comment:', err);
   }
 }
 
