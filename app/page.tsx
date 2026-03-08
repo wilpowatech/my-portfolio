@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { VscArrowRight, VscGithub, VscMail, VscCode } from 'react-icons/vsc';
+import Link from 'next/link'
+import { VscArrowRight, VscGithub, VscMail, VscCode } from 'react-icons/vsc'
 
-import styles from '@/styles/HomePage.module.css';
+import styles from '@/styles/HomePage.module.css'
 
 export default function HomePage() {
   return (
@@ -18,17 +18,16 @@ export default function HomePage() {
 
           <div className={styles.intro}>
             <p className={styles.greeting}>Hello, I&apos;m</p>
-            
-            <h1 className={styles.name}>Nitin Ranganath</h1>
-            
+
+            <h1 className={styles.name}>Ofiare Khoko</h1>
+
             <p className={styles.role}>Full Stack Developer</p>
-            
+
             <div className={styles.divider} />
-            
+
             <p className={styles.description}>
-              I craft clean, performant web applications with modern technologies. 
-              Specialized in TypeScript, React, Node.js, and building products 
-              that users love.
+              I craft clean, performant web applications with modern technologies. Specialized in
+              TypeScript, React, Node.js, and building products that users love.
             </p>
           </div>
 
@@ -37,25 +36,25 @@ export default function HomePage() {
               <span>View Projects</span>
               <VscArrowRight size={18} />
             </Link>
-            
+
             <Link href="/about" className={styles.secondaryAction}>
               <span>Learn More</span>
             </Link>
           </div>
 
           <div className={styles.links}>
-            <a 
-              href="https://github.com/itsnitinr" 
-              target="_blank" 
+            <a
+              href="https://github.com/wilpowatech"
+              target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
             >
               <VscGithub size={16} />
               <span>GitHub</span>
             </a>
-            
+
             <span className={styles.linkSeparator}>/</span>
-            
+
             <Link href="/contact" className={styles.link}>
               <VscMail size={16} />
               <span>Contact</span>
@@ -64,5 +63,5 @@ export default function HomePage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

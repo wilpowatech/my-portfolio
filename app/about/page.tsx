@@ -14,7 +14,7 @@ const AboutPage = () => {
           <div className={styles.headerContent}>
             <div className={styles.headerText}>
               <h1 className={styles.name}>Ofiare Khoko</h1>
-              <p className={styles.role}>Software Engineer at Tessact</p>
+              <p className={styles.role}>Software Engineer at Wilpowa</p>
               <div className={styles.location}>
                 <span className={styles.dot} />
                 Benin City, Nigeria
@@ -73,8 +73,8 @@ const AboutPage = () => {
                 <div className={styles.expMeta}>
                   <span className={styles.expPeriod}>Present</span>
                 </div>
-                <h3 className={styles.expRole}>Software Engineer 2</h3>
-                <p className={styles.expCompany}>Tessact</p>
+                <h3 className={styles.expRole}>Lead Software Engineer </h3>
+                <p className={styles.expCompany}>Wilpowa Tech Academy</p>
                 <ul className={styles.expList}>
                   <li>Leading frontend development with a lean team of 4 engineers</li>
                   <li>Building a next-gen video creation suite for professionals</li>
@@ -137,7 +137,6 @@ const AboutPage = () => {
                   <div className={styles.skillTags}>
                     <span className={styles.skillTag}>Git</span>
                     <span className={styles.skillTag}>VS Code</span>
-                    <span className={styles.skillTag}>Figma</span>
                   </div>
                 </div>
               </div>
@@ -158,26 +157,6 @@ const AboutPage = () => {
               </p>
 
               <div className={styles.writingLinks}>
-                <a
-                  href="https://www.100ms.live/blog/author/nitin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>100ms Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-
-                <a
-                  href="https://blog.logrocket.com/author/nitinranganath/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>LogRocket Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-
                 <a
                   href="https://dev.to/itsnitinr"
                   target="_blank"
