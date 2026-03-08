@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import { VscGithub, VscMail, VscLinkExternal } from 'react-icons/vsc';
-import Link from 'next/link';
+import { VscGithub, VscMail, VscLinkExternal } from 'react-icons/vsc'
+import Link from 'next/link'
 
-import styles from '@/styles/AboutPage.module.css';
+import styles from '@/styles/AboutPage.module.css'
 
 const AboutPage = () => {
   return (
@@ -13,19 +13,19 @@ const AboutPage = () => {
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <div className={styles.headerText}>
-              <h1 className={styles.name}>Nitin Ranganath</h1>
+              <h1 className={styles.name}>Ofiare Khoko</h1>
               <p className={styles.role}>Software Engineer at Tessact</p>
               <div className={styles.location}>
                 <span className={styles.dot} />
-                Mumbai, India
+                Benin City, Nigeria
               </div>
             </div>
           </div>
-          
+
           <div className={styles.headerActions}>
-            <a 
-              href="https://github.com/itsnitinr" 
-              target="_blank" 
+            <a
+              href="https://github.com/wilpowatech"
+              target="_blank"
               rel="noopener noreferrer"
               className={styles.iconButton}
             >
@@ -44,18 +44,19 @@ const AboutPage = () => {
               <span className={styles.sectionNumber}>01</span>
               <h2 className={styles.sectionTitle}>About</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                I&apos;m a software engineer passionate about crafting beautiful, performant 
-                web experiences. I primarily work with the JavaScript/TypeScript ecosystem 
-                and React, building products that people love to use.
+                I&apos;m I am a software developer with a strong foundation in Computer Science and
+                a passion for building secure, scalable, and user-focused digital products. I
+                specialize in modern web development using JavaScript and TypeScript, building
+                applications with frameworks like React and Next.js.
               </p>
-              
+
               <p className={styles.paragraph}>
-                While I specialize in frontend development, I enjoy working across the 
-                stack with Node.js, MongoDB, and Express to bring full-stack applications 
-                to life.
+                My work spans full-stack development, cybersecurity fundamentals, and cloud-based
+                platforms. I enjoy transforming ideas into practical software solutions while
+                maintaining clean code, performance, and strong security practices.
               </p>
             </div>
           </section>
@@ -66,7 +67,7 @@ const AboutPage = () => {
               <span className={styles.sectionNumber}>02</span>
               <h2 className={styles.sectionTitle}>Experience</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <div className={styles.experienceCard}>
                 <div className={styles.expMeta}>
@@ -88,7 +89,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className={styles.expRole}>Technical Writer</h3>
                 <p className={styles.expDesc}>
-                  Contributing to publications like <strong>100ms Blog</strong>, 
+                  Contributing to publications like <strong>100ms Blog</strong>,
                   <strong>LogRocket Blog</strong>, and <strong>DEV.to</strong>.
                 </p>
               </div>
@@ -101,7 +102,7 @@ const AboutPage = () => {
               <span className={styles.sectionNumber}>03</span>
               <h2 className={styles.sectionTitle}>Skills</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <div className={styles.skillsGrid}>
                 <div className={styles.skillCategory}>
@@ -112,7 +113,7 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>HTML/CSS</span>
                   </div>
                 </div>
-                
+
                 <div className={styles.skillCategory}>
                   <h4 className={styles.skillTitle}>Frontend</h4>
                   <div className={styles.skillTags}>
@@ -121,7 +122,7 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>Tailwind CSS</span>
                   </div>
                 </div>
-                
+
                 <div className={styles.skillCategory}>
                   <h4 className={styles.skillTitle}>Backend</h4>
                   <div className={styles.skillTags}>
@@ -130,7 +131,7 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>MongoDB</span>
                   </div>
                 </div>
-                
+
                 <div className={styles.skillCategory}>
                   <h4 className={styles.skillTitle}>Tools</h4>
                   <div className={styles.skillTags}>
@@ -149,37 +150,37 @@ const AboutPage = () => {
               <span className={styles.sectionNumber}>04</span>
               <h2 className={styles.sectionTitle}>Writing</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                I&apos;ve had the pleasure of writing for some amazing publications 
-                as a freelance technical author:
+                I&apos;ve had the pleasure of writing for some amazing publications as a freelance
+                technical author:
               </p>
-              
+
               <div className={styles.writingLinks}>
-                <a 
-                  href="https://www.100ms.live/blog/author/nitin" 
-                  target="_blank" 
+                <a
+                  href="https://www.100ms.live/blog/author/nitin"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.writingLink}
                 >
                   <span>100ms Blog</span>
                   <VscLinkExternal size={14} />
                 </a>
-                
-                <a 
-                  href="https://blog.logrocket.com/author/nitinranganath/" 
-                  target="_blank" 
+
+                <a
+                  href="https://blog.logrocket.com/author/nitinranganath/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.writingLink}
                 >
                   <span>LogRocket Blog</span>
                   <VscLinkExternal size={14} />
                 </a>
-                
-                <a 
-                  href="https://dev.to/itsnitinr" 
-                  target="_blank" 
+
+                <a
+                  href="https://dev.to/itsnitinr"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.writingLink}
                 >
@@ -196,11 +197,11 @@ const AboutPage = () => {
               <span className={styles.sectionNumber}>05</span>
               <h2 className={styles.sectionTitle}>Beyond Code</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                Aside from programming and writing, I enjoy reading dystopian novels, 
-                listening to calm piano music, or just enjoying some downtime.
+                Aside from programming and writing, I enjoy reading dystopian novels, listening to
+                calm piano music, or just enjoying some downtime.
               </p>
             </div>
           </section>
@@ -213,7 +214,7 @@ const AboutPage = () => {
         </footer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage
