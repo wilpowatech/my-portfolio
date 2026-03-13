@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { VscChevronRight } from 'react-icons/vsc';
+import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
+import { VscChevronRight } from 'react-icons/vsc'
 
-import styles from '@/styles/Explorer.module.css';
+import styles from '@/styles/Explorer.module.css'
 
 const explorerItems = [
   {
@@ -27,19 +27,14 @@ const explorerItems = [
     icon: '/logos/js_icon.svg',
   },
   {
-    name: 'articles.json',
-    path: '/articles',
-    icon: '/logos/json_icon.svg',
-  },
-  {
     name: 'github.md',
     path: '/github',
     icon: '/logos/markdown_icon.svg',
   },
-];
+]
 
 const Explorer = () => {
-  const [portfolioOpen, setPortfolioOpen] = useState(true);
+  const [portfolioOpen, setPortfolioOpen] = useState(true)
 
   return (
     <div className={styles.explorer}>
@@ -66,15 +61,14 @@ const Explorer = () => {
           {explorerItems.map((item) => (
             <Link href={item.path} key={item.name}>
               <div className={styles.file}>
-                <Image src={item.icon} alt={item.name} height={18} width={18} />{' '}
-                <p>{item.name}</p>
+                <Image src={item.icon} alt={item.name} height={18} width={18} /> <p>{item.name}</p>
               </div>
             </Link>
           ))}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Explorer;
+export default Explorer
