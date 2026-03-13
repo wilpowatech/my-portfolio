@@ -29,12 +29,12 @@ const contactItems = [
   {
     social: 'telegram',
     link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
+    href: 'https://t.me/ofiarekhoko',
   },
   {
     social: 'peerlist',
     link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
+    href: 'https://peerlist.io/ofiarekhoko',
   },
 ]
 
