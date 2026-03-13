@@ -1,41 +1,67 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
-import GitHubCalendar from 'react-github-calendar';
-import { VscRepo, VscPerson, VscStarEmpty, VscRepoForked, VscLinkExternal, VscGithub } from 'react-icons/vsc';
+import { Metadata } from 'next'
+import Image from 'next/image'
+import GitHubCalendar from 'react-github-calendar'
+import {
+  VscRepo,
+  VscPerson,
+  VscStarEmpty,
+  VscRepoForked,
+  VscLinkExternal,
+  VscGithub,
+} from 'react-icons/vsc'
 
-import RepoCard from '@/components/RepoCard';
-import { Repo, User } from '@/types';
+import RepoCard from '@/components/RepoCard'
+import { Repo, User } from '@/types'
 
-import styles from '@/styles/GithubPage.module.css';
+import styles from '@/styles/GithubPage.module.css'
 
 export const metadata: Metadata = {
   title: 'GitHub',
-};
+}
 
-export const revalidate = 600;
+export const revalidate = 600
 
 async function getGithubData() {
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
-  );
-  if (!userRes.ok) {
-    throw new Error(`Failed to fetch user: ${userRes.status}`);
-  }
-  const user: User = await userRes.json();
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'wilpowatech'
 
-  const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
-  );
-  if (!repoRes.ok) {
-    throw new Error(`Failed to fetch repos: ${repoRes.status}`);
-  }
-  const repos: Repo[] = await repoRes.json();
+  try {
+    const userRes = await fetch(`https://api.github.com/users/${username}`)
 
-  return { user, repos };
+    // If the fetch fails (404, 500, etc.), return fallback data instead of throwing an error
+    if (!userRes.ok) {
+      console.error(`GitHub fetch failed: ${userRes.status}`)
+      return {
+        user: {
+          login: username,
+          avatar_url: 'https://avatars.githubusercontent.com/u/0?v=4', // Default avatar
+          public_repos: 0,
+          followers: 0,
+        } as User,
+        repos: [] as Repo[],
+      }
+    }
+
+    const user: User = await userRes.json()
+
+    const repoRes = await fetch(
+      `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`
+    )
+
+    const repos: Repo[] = repoRes.ok ? await repoRes.json() : []
+
+    return { user, repos }
+  } catch (error) {
+    // This catches network errors or other unexpected issues
+    console.error('Error fetching GitHub data:', error)
+    return {
+      user: { login: username, avatar_url: '', public_repos: 0, followers: 0 } as User,
+      repos: [],
+    }
+  }
 }
 
 export default async function GithubPage() {
-  const { user, repos } = await getGithubData();
+  const { user, repos } = await getGithubData()
 
   return (
     <div className={styles.page}>
@@ -57,7 +83,7 @@ export default async function GithubPage() {
             </div>
           </div>
 
-          <a 
+          <a
             href={`https://github.com/${user.login}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -121,7 +147,7 @@ export default async function GithubPage() {
           <h2 className={styles.sectionTitle}>Contribution Activity</h2>
           <div className={styles.contributions}>
             <GitHubCalendar
-              username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
+              username={process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'wilpowatech'} // Use a fallback here too
               hideColorLegend
               hideMonthLabels
               colorScheme="dark"
@@ -140,7 +166,7 @@ export default async function GithubPage() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Popular Repositories</h2>
-            <a 
+            <a
               href={`https://github.com/${user.login}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
@@ -150,7 +176,7 @@ export default async function GithubPage() {
               <VscLinkExternal size={14} />
             </a>
           </div>
-          
+
           <div className={styles.reposGrid}>
             {repos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />
@@ -159,5 +185,5 @@ export default async function GithubPage() {
         </section>
       </div>
     </div>
-  );
+  )
 }

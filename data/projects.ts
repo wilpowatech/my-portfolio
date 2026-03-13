@@ -8,33 +8,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Driwwwle',
+    title: 'Wilpowa Tech Academy',
     description:
-      'Discover creative websites and developers. A portal for you to share your projects.',
-    logo: '/logos/driwwwle.svg',
-    link: 'https://github.com/itsnitinr/driwwwle',
-    slug: 'driwwwle',
+      'An educational platform focused on teaching African youth web development and software engineering.',
+    logo: '/logos/wilpowa.png',
+    link: 'https://wilpowa.netlify.app/',
+    slug: 'wilpowa-tech-academy',
   },
   {
-    title: 'VSCode Portfolio',
+    title: 'M. A. Idaiye & Co.',
     description:
-      'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
-    logo: '/logos/vsc.svg',
-    link: 'https://github.com/wilpowatech/vscode-portfolio',
-    slug: 'vscode-portfolio',
+      'A professional law office website providing information about legal services and client contact.',
+    logo: '/logos/maidaiye.png',
+    link: 'https://wilpowatech.github.io/maidaiye/',
+    slug: 'maidaiye-law',
   },
   {
-    title: 'Subtrackt',
-    description: 'A simple and elegant way to track your subscriptions and save money.',
-    logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/wilpowatech/subtrackt',
-    slug: 'subtrackt',
-  },
-  {
-    title: 'Coolify Deployments',
-    description: 'VSCode extension to track and deploy your Coolify applications.',
-    logo: '/logos/coolify.svg',
-    link: 'https://github.com/wilpowatech/coolify-vscode-extension',
-    slug: 'coolify-vscode-extension',
+    title: 'Omonsiah Venture',
+    description: 'A business website built to showcase services and provide an online presence.',
+    logo: '/logos/omonsiah.png',
+    link: 'https://wilpowatech.github.io/Omonsiah_Venture/',
+    slug: 'omonsiah-venture',
   },
 ]
