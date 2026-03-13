@@ -1,10 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'export', // Required for GitHub Pages
-  basePath: '/my-portfolio', // Required because your site is in a subfolder
+  output: 'export',
   images: {
-    unoptimized: true, // Required because GitHub Pages doesn't support Next.js image optimization
+    unoptimized: true,
     remotePatterns: [
       { hostname: 'res.cloudinary.com', protocol: 'https' },
       { hostname: 'avatars.githubusercontent.com', protocol: 'https' },
