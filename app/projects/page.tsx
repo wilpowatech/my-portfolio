@@ -1,17 +1,17 @@
-import { Metadata } from 'next';
-import { VscFolderOpened, VscGithub, VscLinkExternal } from 'react-icons/vsc';
+import { Metadata } from 'next'
+import { VscFolderOpened, VscGithub, VscLinkExternal } from 'react-icons/vsc'
 
-import ProjectCard from '@/components/ProjectCard';
-import { projects } from '@/data/projects';
+import ProjectCard from '@/components/ProjectCard'
+import { projects } from '@/data/projects'
 
-import styles from '@/styles/ProjectsPage.module.css';
+import styles from '@/styles/ProjectsPage.module.css'
 
 export const metadata: Metadata = {
   title: 'Projects',
-};
+}
 
 const ProjectsPage = () => {
-  const totalProjects = projects.length;
+  const totalProjects = projects.length
 
   return (
     <div className={styles.page}>
@@ -25,30 +25,26 @@ const ProjectsPage = () => {
               <span className={styles.count}>{totalProjects} Projects</span>
             </div>
           </div>
-          
+
           <div className={styles.headerContent}>
             <h1 className={styles.title}>Featured Work</h1>
             <p className={styles.subtitle}>
-              A curated collection of projects I&apos;ve built. Each represents 
-              a unique challenge and learning experience.
+              A curated collection of projects I&apos;ve built. Each represents a unique challenge
+              and learning experience.
             </p>
           </div>
         </header>
 
         <div className={styles.timeline}>
           {projects.map((project, index) => (
-            <ProjectCard 
-              key={project.slug} 
-              project={project}
-              index={index + 1}
-            />
+            <ProjectCard key={project.slug} project={project} index={index + 1} />
           ))}
         </div>
 
         <footer className={styles.footer}>
           <div className={styles.footerLine} />
-          <a 
-            href="https://github.com/itsnitinr?tab=repositories"
+          <a
+            href="https://github.com/wilpowatech?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.footerLink}
@@ -60,7 +56,7 @@ const ProjectsPage = () => {
         </footer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectsPage;
+export default ProjectsPage

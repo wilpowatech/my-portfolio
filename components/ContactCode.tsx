@@ -1,30 +1,30 @@
-import styles from '@/styles/ContactCode.module.css';
+import styles from '@/styles/ContactCode.module.css'
 
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
+    link: 'github.com',
+    href: 'https://github.com/wilpowa/my-portfolio',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'williamkhoko@gmail.com',
+    href: 'mailto:williamkhoko@gmail.com',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    link: 'wilpowatech',
+    href: 'https://github.com/wilpowatech',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'ofiarekhoko',
+    href: 'https://www.linkedin.com/in/ofiare-khoko/',
   },
   {
     social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    link: 'wilpowatech',
+    href: 'https://www.twitter.com/khoko2010',
   },
   {
     social: 'telegram',
@@ -36,7 +36,7 @@ const contactItems = [
     link: 'nitinranganath',
     href: 'https://peerlist.io/nitinranganath',
   },
-];
+]
 
 const ContactCode = () => {
   return (
@@ -55,7 +55,7 @@ const ContactCode = () => {
       ))}
       <p className={styles.line}>&#125;</p>
     </div>
-  );
-};
+  )
+}
 
-export default ContactCode;
+export default ContactCode

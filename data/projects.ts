@@ -1,9 +1,9 @@
 export interface Project {
-  title: string;
-  description: string;
-  logo: string;
-  link: string;
-  slug: string;
+  title: string
+  description: string
+  logo: string
+  link: string
+  slug: string
 }
 
 export const projects: Project[] = [
@@ -20,23 +20,21 @@ export const projects: Project[] = [
     description:
       'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
     logo: '/logos/vsc.svg',
-    link: 'https://github.com/itsnitinr/vscode-portfolio',
+    link: 'https://github.com/wilpowatech/vscode-portfolio',
     slug: 'vscode-portfolio',
   },
   {
     title: 'Subtrackt',
-    description:
-      'A simple and elegant way to track your subscriptions and save money.',
+    description: 'A simple and elegant way to track your subscriptions and save money.',
     logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/itsnitinr/subtrackt',
+    link: 'https://github.com/wilpowatech/subtrackt',
     slug: 'subtrackt',
   },
   {
     title: 'Coolify Deployments',
-    description:
-      'VSCode extension to track and deploy your Coolify applications.',
+    description: 'VSCode extension to track and deploy your Coolify applications.',
     logo: '/logos/coolify.svg',
-    link: 'https://github.com/itsnitinr/coolify-vscode-extension',
+    link: 'https://github.com/wilpowatech/coolify-vscode-extension',
     slug: 'coolify-vscode-extension',
   },
-];
+]

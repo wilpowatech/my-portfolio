@@ -76,22 +76,48 @@ const AboutPage = () => {
                 <h3 className={styles.expRole}>Lead Software Engineer </h3>
                 <p className={styles.expCompany}>Wilpowa Tech Academy</p>
                 <ul className={styles.expList}>
-                  <li>Leading frontend development with a lean team of 4 engineers</li>
-                  <li>Building a next-gen video creation suite for professionals</li>
-                  <li>Implemented collaborative video reviewing and editing features</li>
-                  <li>Maintaining in-house component library, icon library and website</li>
+                  <li>
+                    Founded and lead Wilpowa Tech Academy, empowering African students with
+                    practical skills in web development, AI, and software engineering
+                  </li>
+                  <li>
+                    Develop and maintain educational web platforms and applications using Next.js,
+                    JavaScript/TypeScript, and modern frontend technologies
+                  </li>
+                  <li>
+                    Mentor students in Linux, Git/GitHub workflows, and real-world software
+                    development practices
+                  </li>
+                  <li>
+                    Design structured learning programs and hands-on coding projects to prepare
+                    students for careers in technology
+                  </li>
                 </ul>
               </div>
 
               <div className={styles.experienceCard}>
                 <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Freelance</span>
+                  <span className={styles.expPeriod}>Web Developer</span>
                 </div>
-                <h3 className={styles.expRole}>Technical Writer</h3>
-                <p className={styles.expDesc}>
-                  Contributing to publications like <strong>100ms Blog</strong>,
-                  <strong>LogRocket Blog</strong>, and <strong>DEV.to</strong>.
-                </p>
+                <h3 className={styles.expRole}>M. A. Idaiye & Co.</h3>
+                <ul className={styles.expList}>
+                  <li>
+                    Designed and developed the firms professional portfolio website using modern web
+                    technologies
+                  </li>
+                  <li>
+                    Implemented client contact systems including email, phone, and WhatsApp
+                    integration for easier communication
+                  </li>
+                  <li>
+                    Developed digital legal forms for documents such as deed of transfer and last
+                    will for client submissions
+                  </li>
+                  <li>
+                    Provide IT support and maintain the firms digital infrastructure and online
+                    presence
+                  </li>
+                </ul>
               </div>
             </div>
           </section>
@@ -110,7 +136,11 @@ const AboutPage = () => {
                   <div className={styles.skillTags}>
                     <span className={styles.skillTag}>JavaScript</span>
                     <span className={styles.skillTag}>TypeScript</span>
-                    <span className={styles.skillTag}>HTML/CSS</span>
+                    <span className={styles.skillTag}>Python</span>
+                    <span className={styles.skillTag}>C Programming</span>
+                    <span className={styles.skillTag}>HTML5</span>
+                    <span className={styles.skillTag}>CSS3</span>
+                    <span className={styles.skillTag}>SQL</span>
                   </div>
                 </div>
 
@@ -120,6 +150,8 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>React</span>
                     <span className={styles.skillTag}>Next.js</span>
                     <span className={styles.skillTag}>Tailwind CSS</span>
+                    <span className={styles.skillTag}>Responsive Design</span>
+                    <span className={styles.skillTag}>UI/UX Fundamentals</span>
                   </div>
                 </div>
 
@@ -127,49 +159,34 @@ const AboutPage = () => {
                   <h4 className={styles.skillTitle}>Backend</h4>
                   <div className={styles.skillTags}>
                     <span className={styles.skillTag}>Node.js</span>
-                    <span className={styles.skillTag}>Express</span>
-                    <span className={styles.skillTag}>MongoDB</span>
+                    <span className={styles.skillTag}>Express.js</span>
+                    <span className={styles.skillTag}>Supabase</span>
+                    <span className={styles.skillTag}>REST APIs</span>
                   </div>
                 </div>
 
                 <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Tools</h4>
+                  <h4 className={styles.skillTitle}>Tools & Platforms</h4>
                   <div className={styles.skillTags}>
                     <span className={styles.skillTag}>Git</span>
+                    <span className={styles.skillTag}>GitHub</span>
                     <span className={styles.skillTag}>VS Code</span>
+                    <span className={styles.skillTag}>Linux (Ubuntu)</span>
+                  </div>
+                </div>
+
+                <div className={styles.skillCategory}>
+                  <h4 className={styles.skillTitle}>Cybersecurity</h4>
+                  <div className={styles.skillTags}>
+                    <span className={styles.skillTag}>Network Security</span>
+                    <span className={styles.skillTag}>System Hardening</span>
+                    <span className={styles.skillTag}>Security Fundamentals</span>
+                    <span className={styles.skillTag}>CompTIA A+</span>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
-          {/* Writing Section */}
-          <section className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>04</span>
-              <h2 className={styles.sectionTitle}>Writing</h2>
-            </div>
-
-            <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                I&apos;ve had the pleasure of writing for some amazing publications as a freelance
-                technical author:
-              </p>
-
-              <div className={styles.writingLinks}>
-                <a
-                  href="https://dev.to/itsnitinr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>DEV.to</span>
-                  <VscLinkExternal size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-
           {/* Beyond Code Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
@@ -179,8 +196,11 @@ const AboutPage = () => {
 
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                Aside from programming and writing, I enjoy reading dystopian novels, listening to
-                calm piano music, or just enjoying some downtime.
+                Outside of programming, I enjoy listening to history podcasts and learning about
+                past civilizations, technological breakthroughs, and global events. I also
+                appreciate music across many genres, usually choosing what fits my current mood.
+                These interests help me unwind, stay curious, and maintain a creative mindset when
+                building software.
               </p>
             </div>
           </section>

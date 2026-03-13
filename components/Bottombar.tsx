@@ -5,14 +5,14 @@ import {
   VscWarning,
   VscSourceControl,
   VscTerminal,
-} from 'react-icons/vsc';
-import { SiNextdotjs } from 'react-icons/si';
+} from 'react-icons/vsc'
+import { SiNextdotjs } from 'react-icons/si'
 
-import styles from '@/styles/Bottombar.module.css';
+import styles from '@/styles/Bottombar.module.css'
 
 interface BottombarProps {
-  onTerminalToggle: () => void;
-  isTerminalOpen: boolean;
+  onTerminalToggle: () => void
+  isTerminalOpen: boolean
 }
 
 const Bottombar = ({ onTerminalToggle, isTerminalOpen }: BottombarProps) => {
@@ -20,7 +20,7 @@ const Bottombar = ({ onTerminalToggle, isTerminalOpen }: BottombarProps) => {
     <footer className={styles.bottomBar}>
       <div className={styles.container}>
         <a
-          href="https://github.com/itsnitinr/vscode-portfolio"
+          href="https://github.com/wilpowatech/my-portfolio"
           target="_blank"
           rel="noreferrer noopener"
           className={styles.section}
@@ -56,7 +56,7 @@ const Bottombar = ({ onTerminalToggle, isTerminalOpen }: BottombarProps) => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Bottombar;
+export default Bottombar
