@@ -39,7 +39,7 @@ const Titlebar = ({ onOpenCommandPalette }: TitlebarProps) => {
         <p>Terminal</p>
         <p>Help</p>
       </div>
-      <p className={styles.title}>Ofiare William - Visual Studio Code</p>
+      <p className={styles.title}>Ofiare Khoko - Visual Studio Code</p>
       <div className={styles.windowButtons}>
         <span className={styles.minimize}></span>
         <span className={styles.maximize}></span>
